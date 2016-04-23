@@ -1,7 +1,6 @@
 <?php
   session_start();
   require('dbconnect.php');
-  require('functions.php');
 
   // 仮のログインユーザーデータ
   $_SESSION['id'] = 1;
