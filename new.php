@@ -1,7 +1,7 @@
 <?php
   session_start();
   require('dbconnect.php');
-  // require('functions.php');
+  //require('functions.php');
 
   // 仮のログインユーザーデータ
   $_SESSION['id'] = 1;
@@ -22,7 +22,7 @@
         // ログインしていない
         header('Location: signin.php');
         exit();
-    }
+      }
 
         // 新規投稿セット
         // 写真の登録
@@ -36,23 +36,23 @@
         }
 
         // セッションのjoinに.$imageに保存されたイメージを呼び出す為に$_POSTの情報を入れる
-          // $_SESSION['join'] = $_POST;
-          // $_SESSION['join']['image'] = $image;
+        // $_SESSION['join'] = $_POST;
+        // $_SESSION['join']['image'] = $image;
 
 
-        // 投稿を記録
-        if (!empty($_POST)) {
-            if ($_POST['title'] != '') {
-                  $sql = sprintf('INSERT INTO photos SET photo_path=%d , title="%s", comment="%s" member_id=%d , created=NOW()',
-                  mysqli_real_escape_string($db, $_FILES['photo_path']),
-                  mysqli_real_escape_string($db, $_POST['title']),
-                  mysqli_real_escape_string($db, $_POST['comment']),
-                  mysqli_real_escape_string($db, $member['member_id'])
-                  );
+              // 投稿を記録
+              if (!empty($_POST)) {
+                  if ($_POST['title'] != '') {
+                      $sql = sprintf('INSERT INTO photos SET photo_path=%d , title="%s", comment="%s" member_id=%d , created=NOW()',
+                      mysqli_real_escape_string($db, $_FILES['photo_path']),
+                      mysqli_real_escape_string($db, $_POST['title']),
+                      mysqli_real_escape_string($db, $_POST['comment']),
+                      mysqli_real_escape_string($db, $member['member_id'])
+                      );
 
-                  mysqli_query($db,$sql) or die(mysqli_error($db));
-            }
-         }
+                      mysqli_query($db,$sql) or die(mysqli_error($db));
+                  }
+               }
 
 // 写真の有無チェック
 
