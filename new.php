@@ -115,8 +115,7 @@
   <meta charset="utf-8">
   <title>Photo vote</title>
 
-  <link rel="stylesheet" type="text/css" href="../tomomi.aisan/assets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../tomomi.aisan/assets/css/new.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 
 </head>
 <body>
