@@ -107,7 +107,6 @@
       // ＊signin.phpに遷移
       // header('Location: signin.php');
       // exit();
-
 ?>
 
 <!DOCTYPE html>
