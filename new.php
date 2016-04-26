@@ -74,9 +74,9 @@
     <meta charset="utf-8">
     <title>Photo vote</title>
 
-    <link rel="stylesheet" type="text/css" href="./tomomi_aisan/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./tomomi_aisan2/assets/css/bootstrap.css">
     <!-- ↑bootstrapの読み込み宣言を先にする -->
-    <link rel="stylesheet" type="text/css" href="./tomomi_aisan/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./tomomi_aisan2/assets/css/main.css">
 
   </head>
   <body>
