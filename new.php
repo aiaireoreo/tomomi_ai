@@ -40,14 +40,14 @@
            $ext = substr($fileName, -4);
 
             if ($ext != '.jpg' && $ext != '.JPG' && $ext != 'jpeg' && $ext != 'JPEG') {
-                $error['photo_path'] = 'type';
+                $error['image'] = 'type';
             }
         }
 
         // エラーがなければ
         if (empty($error)) {
             $image = date("YmdHis") . $_FILES['image']['name'];
-            move_uploaded_file($_FILES['image']['tmp_name'], '../new_pic/' . $image);
+            move_uploaded_file($_FILES['image']['tmp_name'], './new_pic/' . $image);
 
             $sql = sprintf('INSERT INTO photos SET photo_path=%d , title="%s", comment="%s" member_id=%d , created=NOW()',
                 $image,
@@ -60,7 +60,7 @@
 
 
         // ＊signin.phpに遷移
-        // header('Location: signin.php');
+        // header('Location: index.php');
         // exit();
 
         }
@@ -74,9 +74,10 @@
     <meta charset="utf-8">
     <title>Photo vote</title>
 
-    <link rel="stylesheet" type="text/css" href="./tomomi_aisan2/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
     <!-- ↑bootstrapの読み込み宣言を先にする -->
-    <link rel="stylesheet" type="text/css" href="./tomomi_aisan2/assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/new.css">
 
   </head>
   <body>
@@ -96,7 +97,7 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="new.php">新規投稿</a></li>
+                <li><a href="index.php">新規投稿</a></li>
                 <li><a href="users/index.php?id=<?php echo h($_SESSION['id']); ?> " >会員情報</a></li>
              </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -148,61 +149,77 @@
     ===================================================================
     コンテンツ
     -->
-    <h2>新規写真投稿画面</h2>
-    <form action="" method="post" enctype="multipart/form-data">
+    <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading"><strong>新規投稿</strong>
+        <small>&nbsp;&nbsp;あなたのベストショットを投稿しよう！</small>
+      </div>
+      <form action="" method="post" enctype="multipart/form-data">
 
-      <d1>
-        <dt>写真</dt>
+      <div class="panel-body">
+        <h5>写真をアップロードする<span class="required">*</span></h5>
         <dd>
           <input type="file" name="image">
             <?php if(!empty($error['image'])): ?>
-            <?php if($error['image'] == 'type'): ?>
-              <p class="error">画像を登録してください。</p>
-            <?php endif; ?>
+              <?php if($error['image'] == 'blank'): ?>
+                <p class="error">写真の選択は必須です。</p>
+              <?php endif; ?>
+
+              <?php if($error['image'] == 'type'): ?>
+                <p class="error">jpgで指定してください。</p>
+              <?php endif; ?>
             <?php endif; ?>
         </dd>
+      </div>
 
-        <br>
+      <br>
 
-        <dt>タイトル</dt>
-        <dd>
-          <?php if(!empty($_POST['title'])): ?>
-            <input type="text" name="title" value="<?php echo h($_POST['title'], ENT_QUOTES, 'UTF-8'); ?>">
-          <?php else: ?>
-            <input type="text" name="title" value="">
-          <?php endif; ?>
-
-          <!-- phpでエラー内容出力 -->
-          <?php if(!empty($error['title'])): ?>
-            <?php if ($error['title'] == 'blank'): ?>
-              <p class="error">タイトルを入力してください。</p>
+      <div class="control-group">
+        <h5>タイトルを入力してください。<span class="required">*</span></h5>
+        <div class="controls">
+          <dd>
+            <?php if(!empty($_POST['title'])): ?>
+              <input type="text" name="title" value="<?php echo h($_POST['title'], ENT_QUOTES, 'UTF-8'); ?>">
+            <?php else: ?>
+              <input type="text" name="title" value="">
             <?php endif; ?>
-          <?php endif; ?>
-        </dd>
 
-        <br>
-
-        <dt>コメント</dt>
-        <dd>
-          <?php if(!empty($_POST['comment'])): ?>
-            <textarea name="comment" cols="40" rows="4"><?php echo h($_POST['comment'], ENT_QUOTES, 'UTF-8'); ?></textarea>
-          <?php else: ?>
-            <textarea name="comment" cols="40" rows="4"></textarea>
-          <?php endif; ?>
-
-          <!-- phpでエラー内容出力 -->
-          <?php if(!empty($error['comment'])): ?>
-            <?php if ($error['comment'] == 'blank'): ?>
-              <p class="error">コメントを入力してください。</p>
+            <!-- phpでエラー内容出力 -->
+            <?php if(!empty($error['title'])): ?>
+              <?php if ($error['title'] == 'blank'): ?>
+                <p class="error">タイトルを入力してください。</p>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-        </dd>
-      </d1>
+          </dd>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="control-group">
+        <h5>写真に関するエピソードを書いてみんなにアピールしよう！<span class="required">*</span></h5>
+        <div class="controls">
+          <dd>
+            <?php if(!empty($_POST['comment'])): ?>
+              <textarea name="comment" cols="40" rows="4"><?php echo h($_POST['comment'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+            <?php else: ?>
+              <textarea name="comment" cols="40" rows="4"></textarea>
+            <?php endif; ?>
+
+            <!-- phpでエラー内容出力 -->
+            <?php if(!empty($error['comment'])): ?>
+              <?php if ($error['comment'] == 'blank'): ?>
+                <p class="error">コメントを入力してください。</p>
+              <?php endif; ?>
+            <?php endif; ?>
+          </dd>
+        </div>
+      </div>
 
       <br>
 
       <div>
-          <input type="submit" value="投稿完了">
+        <input type="submit" class="btn btn-sm btn-primary" value="投稿完了">
       </div>
     </form>
 
