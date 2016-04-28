@@ -152,7 +152,6 @@
 
       <div class="panel-body">
         <h5>写真をアップロードする<span class="required">*</span></h5>
-        <dd>
           <input type="file" name="image">
             <?php if(!empty($error['image'])): ?>
               <?php if($error['image'] == 'blank'): ?>
@@ -163,7 +162,6 @@
                 <p class="error">jpgで指定してください。</p>
               <?php endif; ?>
             <?php endif; ?>
-        </dd>
       </div>
 
       <br>
@@ -171,20 +169,18 @@
       <div class="control-group">
         <h5>タイトルを入力してください。<span class="required">*</span></h5>
         <div class="controls">
-          <dd>
-            <?php if(!empty($_POST['title'])): ?>
-              <input type="text" name="title" value="<?php echo h($_POST['title'], ENT_QUOTES, 'UTF-8'); ?>">
-            <?php else: ?>
-              <input type="text" name="title" value="">
-            <?php endif; ?>
+          <?php if(!empty($_POST['title'])): ?>
+            <input type="text" name="title" value="<?php echo h($_POST['title'], ENT_QUOTES, 'UTF-8'); ?>">
+          <?php else: ?>
+            <input type="text" name="title" value="">
+          <?php endif; ?>
 
-            <!-- phpでエラー内容出力 -->
-            <?php if(!empty($error['title'])): ?>
-              <?php if ($error['title'] == 'blank'): ?>
-                <p class="error">タイトルを入力してください。</p>
-              <?php endif; ?>
+          <!-- phpでエラー内容出力 -->
+          <?php if(!empty($error['title'])): ?>
+            <?php if ($error['title'] == 'blank'): ?>
+              <p class="error">タイトルを入力してください。</p>
             <?php endif; ?>
-          </dd>
+          <?php endif; ?>
         </div>
       </div>
 
@@ -193,20 +189,18 @@
       <div class="control-group">
         <h5>写真に関するエピソードを書いてみんなにアピールしよう！<span class="required">*</span></h5>
         <div class="controls">
-          <dd>
-            <?php if(!empty($_POST['comment'])): ?>
-              <textarea name="comment" cols="40" rows="4"><?php echo h($_POST['comment'], ENT_QUOTES, 'UTF-8'); ?></textarea>
-            <?php else: ?>
-              <textarea name="comment" cols="40" rows="4"></textarea>
-            <?php endif; ?>
+          <?php if(!empty($_POST['comment'])): ?>
+            <textarea name="comment" cols="40" rows="4"><?php echo h($_POST['comment'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+          <?php else: ?>
+            <textarea name="comment" cols="40" rows="4" placeholder="全角1500文字以内で記入してください。"></textarea>
+          <?php endif; ?>
 
-            <!-- phpでエラー内容出力 -->
-            <?php if(!empty($error['comment'])): ?>
-              <?php if ($error['comment'] == 'blank'): ?>
-                <p class="error">コメントを入力してください。</p>
-              <?php endif; ?>
+          <!-- phpでエラー内容出力 -->
+          <?php if(!empty($error['comment'])): ?>
+            <?php if ($error['comment'] == 'blank'): ?>
+              <p class="error">コメントを入力してください。</p>
             <?php endif; ?>
-          </dd>
+          <?php endif; ?>
         </div>
       </div>
 
