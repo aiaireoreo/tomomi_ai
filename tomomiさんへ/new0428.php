@@ -1,5 +1,5 @@
 <?php
-
+  //ああああ
     session_start();
     require('dbconnect.php');
     require('functions.php');
