@@ -215,62 +215,62 @@ span.round-tab:hover {
 }
 .accordion-header {
     font-size:13px;
-	background:#ebebeb;
-	margin:5px 0 0;
-	padding:7px 20px;
-	cursor:pointer;
-	color:#fff;
-	font-weight:400;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px
+  background:#ebebeb;
+  margin:5px 0 0;
+  padding:7px 20px;
+  cursor:pointer;
+  color:#fff;
+  font-weight:400;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px
 }
 .unselect_img{
-	width:18px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+  width:18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .active-header {
-	-moz-border-radius:5px 5px 0 0;
-	-webkit-border-radius:5px 5px 0 0;
-	border-radius:5px 5px 0 0;
-	background:#F53B27;
+  -moz-border-radius:5px 5px 0 0;
+  -webkit-border-radius:5px 5px 0 0;
+  border-radius:5px 5px 0 0;
+  background:#F53B27;
 }
 .active-header:after {
-	content:"\f068";
-	font-family:'FontAwesome';
-	float:right;
-	margin:5px;
-	font-weight:400
+  content:"\f068";
+  font-family:'FontAwesome';
+  float:right;
+  margin:5px;
+  font-weight:400
 }
 .inactive-header {
-	background:#333;
+  background:#333;
 }
 .inactive-header:after {
-	content:"\f067";
-	font-family:'FontAwesome';
-	float:right;
-	margin:4px 5px;
-	font-weight:400
+  content:"\f067";
+  font-family:'FontAwesome';
+  float:right;
+  margin:4px 5px;
+  font-weight:400
 }
 .accordion-content {
-	display:none;
-	padding:20px;
-	background:#fff;
-	border:1px solid #ccc;
-	border-top:0;
-	-moz-border-radius:0 0 5px 5px;
-	-webkit-border-radius:0 0 5px 5px;
-	border-radius:0 0 5px 5px
+  display:none;
+  padding:20px;
+  background:#fff;
+  border:1px solid #ccc;
+  border-top:0;
+  -moz-border-radius:0 0 5px 5px;
+  -webkit-border-radius:0 0 5px 5px;
+  border-radius:0 0 5px 5px
 }
 .accordion-content a{
-	text-decoration:none;
-	color:#333;
+  text-decoration:none;
+  color:#333;
 }
 .accordion-content td{
-	border-bottom:1px solid #dcdcdc;
+  border-bottom:1px solid #dcdcdc;
 }
 
 
@@ -726,7 +726,7 @@ label {
 /*140→10にmargin-top 変更しました*/
 body { margin-top: 10px;
   font-family: 'Open Sans', sans-serif;
-} 
+}
 
 .fb-profile img.fb-image-lg {
   z-index: 0;
@@ -740,7 +740,7 @@ body { margin-top: 10px;
 }
 
 @media (max-width:768px) {
-  .fb-profile-text h1{ 
+  .fb-profile-text h1{
     font-weight: 700;
     font-size:16px;
 }
@@ -753,7 +753,7 @@ body { margin-top: 10px;
 
 legend{
   text-align: center;
-} 
+}
 
 /*写真新規投稿・編集画面用*/
 
