@@ -4,10 +4,7 @@
     require('dbconnect.php');
     require('functions.php');
 
-    // 仮のログインユーザーデータ
-    $_SESSION['id'] = 1;
-
-    //ログイン判定
+    //ログイン
     $_SESSION['time'] = time();
     if (isset($_SESSION['id']) && $_SESSION['time'] + 3600 > time()) {
         $sql = sprintf('SELECT * FROM members WHERE id=%d',
@@ -17,7 +14,7 @@
         $record = mysqli_query($db, $sql) or die (mysqli_error($db));
         $table = mysqli_fetch_assoc($record);
 
-        // 削除したいphotoデータのidとログインidが一致すれば削除処理実行
+        // 削除対象のphotoデータidとログインidが一致すれば削除処理実行
         if ($table['id'] == $_SESSION['id']){
             $sql = sprintf('DELETE FROM photos WHERE id=%d',
             m($db, $_SESSION['id'])
@@ -30,7 +27,7 @@
 
     }
 
-    header('Location; login.php');
+    header('Location:index.php');
     exit();
 
 ?>
